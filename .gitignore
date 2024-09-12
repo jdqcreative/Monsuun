@@ -1,2 +1,10 @@
 # ignore all .opendb files
 *.opendb
+*.user
+*.filters
+*.suo
+
+# Ignore all files in a specific directory
+.vs/
+bin/
+bin-int/
