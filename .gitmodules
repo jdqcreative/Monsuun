@@ -1,0 +1,3 @@
+[submodule "Monsuun2024/vendor/spdlog"]
+	path = Monsuun2024/vendor/spdlog
+	url = https://github.com/gabime/spdlog
