@@ -4,6 +4,9 @@
     <Filter Include="Monsuun">
       <UniqueIdentifier>{7A19F835-E6F8-76D1-EF10-02A85B6FDD32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Monsuun\Events">
+      <UniqueIdentifier>{1E18979F-0AE6-8AA5-F379-FBCBDFE6660A}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Monsuun.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Monsuun\EntryPoint.h">
       <Filter>Monsuun</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Monsuun\Events\ApplicationEvent.h">
+      <Filter>Monsuun\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Monsuun\Events\Event.h">
+      <Filter>Monsuun\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Monsuun\Events\KeyEvent.h">
+      <Filter>Monsuun\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Monsuun\Events\MouseEvent.h">
+      <Filter>Monsuun\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Monsuun\Log.h">
       <Filter>Monsuun</Filter>

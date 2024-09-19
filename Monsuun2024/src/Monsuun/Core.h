@@ -7,5 +7,7 @@
 		#define MONSUUN_API __declspec(dllimport)
 	#endif
 #else
-	#error "Monsuun only supports Windows""
+	#error "Monsuun only supports Windows"
 #endif
+
+#define BIT(x) (1 << x)

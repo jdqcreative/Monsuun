@@ -26,6 +26,7 @@ project "Monsuun2024"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include;"
 	}
 
