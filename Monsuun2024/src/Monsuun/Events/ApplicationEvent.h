@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Monsuun {
 
 	class MONSUUN_API WindowResizeEvent : public Event

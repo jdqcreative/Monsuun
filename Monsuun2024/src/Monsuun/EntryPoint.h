@@ -10,9 +10,9 @@ int main(int argc, char** argv)
 {
 	// Temporary
 	Monsuun::Log::Init();
-	MO_CORE_WARN("Initialized Log!");
+	MU_CORE_WARN("Initialized Log!");
 	int a = 5;
-	MO_INFO("Hello! Var={0}", a);
+	MU_INFO("Hello! Var={0}", a);
 
 	auto app = Monsuun::CreateApplication();
 	app->Run();

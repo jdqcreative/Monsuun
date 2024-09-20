@@ -34,6 +34,7 @@
     <ClInclude Include="src\Monsuun\Log.h">
       <Filter>Monsuun</Filter>
     </ClInclude>
+    <ClInclude Include="src\mupch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Monsuun\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Monsuun\Log.cpp">
       <Filter>Monsuun</Filter>
     </ClCompile>
+    <ClCompile Include="src\mupch.cpp" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,4 @@
+#include "mupch.h"
 #include "Application.h"
 
 #include "Monsuun/Events/ApplicationEvent.h"
@@ -14,7 +15,7 @@ namespace Monsuun {
 	void Application::Run() 
 	{
 		WindowResizeEvent e(1280, 720);
-		MO_TRACE(e);
+		MU_TRACE(e);
 
 		while (true);
 	}

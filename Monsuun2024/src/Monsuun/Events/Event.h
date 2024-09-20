@@ -1,9 +1,6 @@
 #pragma once
-
+#include "mupch.h"
 #include "Monsuun/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Monsuun {
 

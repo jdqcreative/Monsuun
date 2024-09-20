@@ -18,6 +18,9 @@ project "Monsuun2024"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "mupch.h"
+	pchsource "Monsuun2024/src/mupch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
