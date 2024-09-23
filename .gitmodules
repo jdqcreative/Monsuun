@@ -1,3 +1,9 @@
 [submodule "Monsuun2024/vendor/spdlog"]
 	path = Monsuun2024/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Monsuun2024/Monsuun2024/vendor/GLFW"]
+	path = Monsuun2024/Monsuun2024/vendor/GLFW
+	url = https://github.com/jdqcreative/glfw
+[submodule "Monsuun2024/vendor/GLFW"]
+	path = Monsuun2024/vendor/GLFW
+	url = https://github.com/jdqcreative/glfw

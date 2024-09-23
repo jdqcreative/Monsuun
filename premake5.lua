@@ -10,6 +10,12 @@ workspace "Monsuun2024"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Monsuun2024/vendor/GLFW/include"
+
+include "Monsuun2024/vendor/GLFW"
+
 project "Monsuun2024"
 	location "Monsuun2024"
 	kind "SharedLib"
@@ -30,7 +36,15 @@ project "Monsuun2024"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include;"
+		"%{prj.name}/vendor/spdlog/include;",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib",
+		"dwmapi.lib"
 	}
 
 	filter "system:windows"

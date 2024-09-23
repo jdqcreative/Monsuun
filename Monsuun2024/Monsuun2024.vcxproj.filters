@@ -7,6 +7,9 @@
     <Filter Include="Monsuun\Events">
       <UniqueIdentifier>{1E18979F-0AE6-8AA5-F379-FBCBDFE6660A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Monsuun.h" />
@@ -34,6 +37,12 @@
     <ClInclude Include="src\Monsuun\Log.h">
       <Filter>Monsuun</Filter>
     </ClInclude>
+    <ClInclude Include="src\Monsuun\Window.h">
+      <Filter>Monsuun</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\WindowsWindow.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
     <ClInclude Include="src\mupch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +51,9 @@
     </ClCompile>
     <ClCompile Include="src\Monsuun\Log.cpp">
       <Filter>Monsuun</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\WindowsWindow.cpp">
+      <Filter>Platform</Filter>
     </ClCompile>
     <ClCompile Include="src\mupch.cpp" />
   </ItemGroup>

@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Monsuun/Log.h"
+
 #ifdef MO_PLATFORM_WINDOWS
 	#include <Windows.h> 
 #endif
