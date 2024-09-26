@@ -34,6 +34,12 @@
     <ClInclude Include="src\Monsuun\Events\MouseEvent.h">
       <Filter>Monsuun\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Monsuun\Layer.h">
+      <Filter>Monsuun</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Monsuun\LayerStack.h">
+      <Filter>Monsuun</Filter>
+    </ClInclude>
     <ClInclude Include="src\Monsuun\Log.h">
       <Filter>Monsuun</Filter>
     </ClInclude>
@@ -47,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Monsuun\Application.cpp">
+      <Filter>Monsuun</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Monsuun\Layer.cpp">
+      <Filter>Monsuun</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Monsuun\LayerStack.cpp">
       <Filter>Monsuun</Filter>
     </ClCompile>
     <ClCompile Include="src\Monsuun\Log.cpp">

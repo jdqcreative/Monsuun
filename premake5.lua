@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Monsuun2024/vendor/GLFW/include"
+IncludeDir["Glad"] = "Monsuun2024/vendor/Glad/include"
 
 include "Monsuun2024/vendor/GLFW"
+include "Monsuun2024/vendor/Glad"
 
 project "Monsuun2024"
 	location "Monsuun2024"
@@ -37,12 +39,14 @@ project "Monsuun2024"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include;",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib",
 		"dwmapi.lib"
 	}
@@ -55,7 +59,8 @@ project "Monsuun2024"
 		defines
 		{
 			"MO_PLATFORM_WINDOWS",
-			"MONSUUN_BUILD_DLL"
+			"MONSUUN_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -65,14 +70,17 @@ project "Monsuun2024"
 
 	filter "configurations:Debug"
 		defines "MO_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MO_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MO_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -112,12 +120,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "MO_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MO_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MO_DIST"
+		buildoptions "/MD"
 		optimize "On"
