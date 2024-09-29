@@ -14,9 +14,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Monsuun2024/vendor/GLFW/include"
 IncludeDir["Glad"] = "Monsuun2024/vendor/Glad/include"
+IncludeDir["ImGui"] = "Monsuun2024/vendor/imgui"
+IncludeDir["glm"] = "Monsuun2024/vendor/glm"
 
 include "Monsuun2024/vendor/GLFW"
 include "Monsuun2024/vendor/Glad"
+include "Monsuun2024/vendor/imgui"
 
 project "Monsuun2024"
 	location "Monsuun2024"
@@ -32,7 +35,9 @@ project "Monsuun2024"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -40,13 +45,16 @@ project "Monsuun2024"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include;",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib",
 		"dwmapi.lib"
 	}
@@ -100,7 +108,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Monsuun2024/vendor/spdlog/include;",
-		"Monsuun2024/src"
+		"Monsuun2024/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links

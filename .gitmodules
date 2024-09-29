@@ -7,3 +7,6 @@
 [submodule "Monsuun2024/vendor/GLFW"]
 	path = Monsuun2024/vendor/GLFW
 	url = https://github.com/jdqcreative/glfw
+[submodule "Monsuun2024/vendor/imgui"]
+	path = Monsuun2024/vendor/imgui
+	url = https://github.com/jdqcreative/imgui
