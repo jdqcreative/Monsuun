@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Monsuun/Window.h"
+#include "Monsuun/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -29,6 +30,7 @@ namespace Monsuun {
 		virtual void Shutdown();
 
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

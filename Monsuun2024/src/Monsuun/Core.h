@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef MO_PLATFORM_WINDOWS
-	#ifdef MONSUUN_BUILD_DLL
-		#define MONSUUN_API __declspec(dllexport)
+	#if MU_DYNAMIC_LINK
+		#ifdef MONSUUN_BUILD_DLL
+			#define MONSUUN_API __declspec(dllexport)
+		#else
+			#define MONSUUN_API __declspec(dllimport)
+		#endif
 	#else
-		#define MONSUUN_API __declspec(dllimport)
+		#define MONSUUN_API
 	#endif
 #else
 	#error "Monsuun only supports Windows"
