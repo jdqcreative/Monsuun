@@ -3,6 +3,7 @@
 *.user
 *.filters
 *.suo
+*.db
 
 # Ignore all files in a specific directory
 .vs/

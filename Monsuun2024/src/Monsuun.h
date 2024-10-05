@@ -12,6 +12,17 @@
 
 #include "Monsuun/ImGui/ImGuiLayer.h"
 
+// ---Renderer---------------------
+#include "Monsuun/Renderer/Renderer.h"
+#include "Monsuun/Renderer/RenderCommand.h"
+
+#include "Monsuun/Renderer/Buffer.h"
+#include "Monsuun/Renderer/Shader.h"
+#include "Monsuun/Renderer/VertexArray.h"
+
+#include "Monsuun/Renderer/OrthographicCamera.h"
+//----------------------------------
+
 // ---Entry Point-------------------
 #include "Monsuun/EntryPoint.h"
 //----------------------------------
