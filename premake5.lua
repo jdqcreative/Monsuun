@@ -16,6 +16,7 @@ IncludeDir["GLFW"] = "Monsuun2024/vendor/GLFW/include"
 IncludeDir["Glad"] = "Monsuun2024/vendor/Glad/include"
 IncludeDir["ImGui"] = "Monsuun2024/vendor/imgui"
 IncludeDir["glm"] = "Monsuun2024/vendor/glm"
+IncludeDir["stb_image"] = "Monsuun2024/vendor/stb_image"
 
 include "Monsuun2024/vendor/GLFW"
 include "Monsuun2024/vendor/Glad"
@@ -38,6 +39,8 @@ project "Monsuun2024"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
@@ -54,7 +57,8 @@ project "Monsuun2024"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Monsuun/Core.h"
+#include "Monsuun/Core/Timestep.h"
 #include "Monsuun/Events/Event.h"
 
 namespace Monsuun {
@@ -14,7 +15,7 @@ namespace Monsuun {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 
