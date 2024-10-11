@@ -1,4 +1,4 @@
-# ignore all .opendb files
+# ignore all files
 *.opendb
 *.user
 *.filters

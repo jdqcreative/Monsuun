@@ -98,9 +98,7 @@ void main()
 
 		)";
 
-		m_Shader.reset(Monsuun::Shader::Create(vertexSrc, fragmentSrc));
-
-		//Shader::Create("assets/shaders/Texture.glsl");
+		m_Shader = Monsuun::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 
@@ -138,15 +136,15 @@ void main()
 
 		)";
 
-		m_FlatColorShader.reset(Monsuun::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Monsuun::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Monsuun::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = Monsuun::Texture2D::Create("assets/textures/Checkerboard.png");
 		m_MonsuunLogoTexture = Monsuun::Texture2D::Create("assets/textures/MonsuunLogo.png");
 
-		std::dynamic_pointer_cast<Monsuun::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Monsuun::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Monsuun::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Monsuun::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 }
 
 	void OnUpdate(Monsuun::Timestep ts) override
@@ -191,10 +189,12 @@ void main()
 			
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		Monsuun::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Monsuun::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		m_MonsuunLogoTexture->Bind();
-		Monsuun::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Monsuun::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		//Monsuun::Renderer::Submit(m_Shader, m_VertexArray);
@@ -213,10 +213,11 @@ void main()
 	{}
 
 private:
+	Monsuun::ShaderLibrary m_ShaderLibrary;
 	Monsuun::Ref<Monsuun::Shader> m_Shader;
 	Monsuun::Ref<Monsuun::VertexArray> m_VertexArray;
 
-	Monsuun::Ref<Monsuun::Shader> m_FlatColorShader, m_TextureShader;
+	Monsuun::Ref<Monsuun::Shader> m_FlatColorShader;
 	Monsuun::Ref<Monsuun::VertexArray> m_SquareVA;
 
 	Monsuun::Ref<Monsuun::Texture2D> m_Texture, m_MonsuunLogoTexture;
