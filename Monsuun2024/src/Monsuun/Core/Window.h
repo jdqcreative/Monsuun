@@ -2,8 +2,8 @@
 
 #include "mupch.h"
 
-#include "Monsuun/Core.h"
-#include "Events/Event.h"
+#include "Monsuun/Core/Core.h"
+#include "Monsuun/Events/Event.h"
 
 namespace Monsuun {
 

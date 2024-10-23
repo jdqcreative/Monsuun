@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Monsuun/Core.h"
+#include "Monsuun/Core/Core.h"
 
 namespace Monsuun {
 

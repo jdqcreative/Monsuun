@@ -1,7 +1,7 @@
 #include "mupch.h"
 #include "WindowsInput.h"
 
-#include "Monsuun/Application.h"
+#include "Monsuun/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Monsuun {

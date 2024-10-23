@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Monsuun/Window.h"
+#include "Monsuun/Core/Window.h"
 #include "Monsuun/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

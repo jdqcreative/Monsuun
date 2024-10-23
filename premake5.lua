@@ -76,7 +76,6 @@ project "Monsuun2024"
 
 		defines
 		{
-			"MO_PLATFORM_WINDOWS",
 			"MONSUUN_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
 		}
@@ -128,11 +127,6 @@ project "Sandbox"
 	filter "system:windows"
 		staticruntime "On"
 		systemversion "latest"
-
-		defines
-		{
-			"MO_PLATFORM_WINDOWS",
-		}
 
 	filter "configurations:Debug"
 		defines "MO_DEBUG"

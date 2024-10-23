@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Monsuun/Input.h"
+#include "Monsuun/Core/Input.h"
 
 namespace Monsuun {
 

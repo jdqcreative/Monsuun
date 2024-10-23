@@ -1,4 +1,5 @@
 #include <Monsuun.h>
+#include <Monsuun/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -7,14 +8,16 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Sandbox2D.h"
+
 class ExampleLayer : public Monsuun::Layer
 {
 public:
 
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_CameraController(1280.0f / 720.0f, true)
 	{
-		m_VertexArray.reset(Monsuun::VertexArray::Create());
+		m_VertexArray = Monsuun::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -37,7 +40,7 @@ public:
 		indexBuffer.reset(Monsuun::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Monsuun::VertexArray::Create());
+		m_SquareVA = Monsuun::VertexArray::Create();
 
 		float squarVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -149,29 +152,14 @@ void main()
 
 	void OnUpdate(Monsuun::Timestep ts) override
 	{
-		// Camera Controls
-		if (Monsuun::Input::IsKeyPressed(MU_KEY_A))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (Monsuun::Input::IsKeyPressed(MU_KEY_D))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		if (Monsuun::Input::IsKeyPressed(MU_KEY_S))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-		else if (Monsuun::Input::IsKeyPressed(MU_KEY_W))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-
-		if (Monsuun::Input::IsKeyPressed(MU_KEY_Q))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		if (Monsuun::Input::IsKeyPressed(MU_KEY_E))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
-
+		// Render
 		Monsuun::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Monsuun::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		Monsuun::Renderer::BeginScene(m_Camera);
+		Monsuun::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -209,8 +197,10 @@ void main()
 		ImGui::End();
 	}
 
-	void OnEvent(Monsuun::Event& event) override
-	{}
+	void OnEvent(Monsuun::Event& e) override
+	{
+		m_CameraController.OnEvent(e);
+	}
 
 private:
 	Monsuun::ShaderLibrary m_ShaderLibrary;
@@ -222,12 +212,7 @@ private:
 
 	Monsuun::Ref<Monsuun::Texture2D> m_Texture, m_MonsuunLogoTexture;
 
-	Monsuun::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 5.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
+	Monsuun::OrthographicCameraController m_CameraController;
 
 	glm::vec3 m_SquareColor = {0.2f, 0.3f, 0.8f};
 };
@@ -237,7 +222,8 @@ class Sandbox : public Monsuun::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()

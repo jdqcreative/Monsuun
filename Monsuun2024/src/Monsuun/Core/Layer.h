@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Monsuun/Core.h"
+#include "Monsuun/Core/Core.h"
 #include "Monsuun/Core/Timestep.h"
 #include "Monsuun/Events/Event.h"
 
