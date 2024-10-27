@@ -22,5 +22,7 @@ private:
 	Monsuun::Ref<Monsuun::VertexArray> m_SquareVA;
 	Monsuun::Ref<Monsuun::Shader> m_FlatColorShader;
 
+	Monsuun::Ref<Monsuun::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };
