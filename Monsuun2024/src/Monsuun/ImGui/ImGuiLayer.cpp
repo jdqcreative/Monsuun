@@ -24,6 +24,8 @@ namespace Monsuun {
 
 	void ImGuiLayer::OnAttach()
 	{
+		MU_PROFILE_FUNCTION();
+
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -58,6 +60,8 @@ namespace Monsuun {
 
 	void ImGuiLayer::OnDetach()
 	{
+		MU_PROFILE_FUNCTION();
+
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
@@ -65,6 +69,8 @@ namespace Monsuun {
 
 	void ImGuiLayer::Begin()
 	{
+		MU_PROFILE_FUNCTION();
+
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
@@ -87,11 +93,5 @@ namespace Monsuun {
 			ImGui::RenderPlatformWindowsDefault();
 			glfwMakeContextCurrent(backup_current_context);
 		}
-	}
-
-	void ImGuiLayer::OnImGuiRender()
-	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
 	}
 }

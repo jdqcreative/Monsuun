@@ -15,6 +15,8 @@
 
 #include "Monsuun/Core/Log.h"
 
+#include "Monsuun/Debug/Instrumentor.h"
+
 #ifdef MO_PLATFORM_WINDOWS
 	#include <Windows.h> 
 #endif

@@ -10,6 +10,8 @@ namespace Monsuun {
 
 	void Renderer::Init()
 	{
+		MU_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}

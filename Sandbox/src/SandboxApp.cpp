@@ -25,8 +25,7 @@ public:
 			0.0f, 0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		Monsuun::Ref<Monsuun::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Monsuun::VertexBuffer::Create(vertices, sizeof(vertices)));
+		Monsuun::Ref<Monsuun::VertexBuffer> vertexBuffer = Monsuun::VertexBuffer::Create(vertices, sizeof(vertices));
 
 		Monsuun::BufferLayout layout = {
 			{ Monsuun::ShaderDataType::Float3, "a_Position"},
@@ -37,7 +36,7 @@ public:
 
 		uint32_t indices[3] = { 0, 1, 2 };
 		Monsuun::Ref<Monsuun::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Monsuun::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		indexBuffer = Monsuun::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = Monsuun::VertexArray::Create();
@@ -49,8 +48,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Monsuun::Ref<Monsuun::VertexBuffer> squareVB;
-		squareVB.reset(Monsuun::VertexBuffer::Create(squarVertices, sizeof(squarVertices)));
+		Monsuun::Ref<Monsuun::VertexBuffer> squareVB = Monsuun::VertexBuffer::Create(squarVertices, sizeof(squarVertices));
 		squareVB->SetLayout({
 			{ Monsuun::ShaderDataType::Float3, "a_Position"},
 			{ Monsuun::ShaderDataType::Float2, "a_TexCoord"}
@@ -59,7 +57,7 @@ public:
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 		Monsuun::Ref<Monsuun::IndexBuffer> squareIB;
-		squareIB.reset(Monsuun::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIB = Monsuun::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
@@ -95,8 +93,9 @@ in vec4 v_Color;
 
 void main()
 {
-	color = vec4(v_Position * 0.5 + 0.5, 1.0);
-	color = v_Color;
+	//color = vec4(v_Position * 0.5 + 0.5, 1.0);
+	color = vec4(1.0, 0.8, 0.8, 1.0);
+	//color = v_Color;
 }
 
 		)";

@@ -8,15 +8,19 @@ extern Monsuun::Application* Monsuun::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	// Temporary
 	Monsuun::Log::Init();
-	MU_CORE_WARN("Initialized Log!");
-	int a = 5;
-	MU_INFO("Hello! Var={0}", a);
 
+	MU_PROFILE_BEGIN_SESSION("Startup", "MonsuunProfile-Startup.json");
 	auto app = Monsuun::CreateApplication();
+	MU_PROFILE_END_SESSION();
+
+	MU_PROFILE_BEGIN_SESSION("Runtime", "MonsuunProfile-Runtime.json");
 	app->Run();
+	MU_PROFILE_END_SESSION();
+
+	MU_PROFILE_BEGIN_SESSION("Shutdown", "MonsuunProfile-Shutdown.json");
 	delete app;
+	MU_PROFILE_END_SESSION();
 }
 
 #endif
