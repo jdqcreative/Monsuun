@@ -2,6 +2,8 @@
 
 #include "Monsuun.h"
 
+#include "ParticleSystem.h"
+
 class Sandbox2D : public Monsuun::Layer
 {
 public:
@@ -23,6 +25,10 @@ private:
 	Monsuun::Ref<Monsuun::Shader> m_FlatColorShader;
 
 	Monsuun::Ref<Monsuun::Texture2D> m_CheckerboardTexture;
+	Monsuun::Ref<Monsuun::Texture2D> m_SpriteSheet;
 
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
+
+	ParticleSystem m_ParticleSystem;
+	ParticleProps m_Particle;
 };
